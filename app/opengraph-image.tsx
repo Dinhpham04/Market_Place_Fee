@@ -1,0 +1,113 @@
+import { ImageResponse } from "next/og";
+
+// Route segment config
+export const runtime = "edge";
+
+// Image metadata
+export const alt = "Tính Lãi Shopee - Công cụ tính phí bán hàng Shopee";
+export const size = {
+    width: 1200,
+    height: 630,
+};
+
+export const contentType = "image/png";
+
+// Image generation
+export default async function Image() {
+    return new ImageResponse(
+        (
+            <div
+                style={{
+                    height: "100%",
+                    width: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "#ffffff",
+                    backgroundImage: "linear-gradient(135deg, #EE4D2D 0%, #FF6B35 100%)",
+                }}
+            >
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        backgroundColor: "white",
+                        borderRadius: "24px",
+                        padding: "60px 80px",
+                        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                    }}
+                >
+                    <div
+                        style={{
+                            fontSize: 72,
+                            fontWeight: 700,
+                            color: "#EE4D2D",
+                            marginBottom: 16,
+                            textAlign: "center",
+                        }}
+                    >
+                        💰 Tính Lãi Shopee
+                    </div>
+                    <div
+                        style={{
+                            fontSize: 32,
+                            color: "#4B5563",
+                            textAlign: "center",
+                            maxWidth: 800,
+                            lineHeight: 1.4,
+                        }}
+                    >
+                        Công cụ tính phí, lợi nhuận bán hàng trên Shopee
+                    </div>
+                    <div
+                        style={{
+                            display: "flex",
+                            gap: 16,
+                            marginTop: 32,
+                        }}
+                    >
+                        <div
+                            style={{
+                                backgroundColor: "#F3F4F6",
+                                padding: "12px 24px",
+                                borderRadius: "9999px",
+                                fontSize: 20,
+                                color: "#374151",
+                            }}
+                        >
+                            ✅ Miễn phí
+                        </div>
+                        <div
+                            style={{
+                                backgroundColor: "#F3F4F6",
+                                padding: "12px 24px",
+                                borderRadius: "9999px",
+                                fontSize: 20,
+                                color: "#374151",
+                            }}
+                        >
+                            ✅ Chính xác
+                        </div>
+                        <div
+                            style={{
+                                backgroundColor: "#F3F4F6",
+                                padding: "12px 24px",
+                                borderRadius: "9999px",
+                                fontSize: 20,
+                                color: "#374151",
+                            }}
+                        >
+                            ✅ Dễ sử dụng
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ),
+        {
+            ...size,
+        }
+    );
+}
