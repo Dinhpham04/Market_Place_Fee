@@ -9,6 +9,7 @@ import {
 } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { GoogleAnalytics } from "@/components/analytics";
+import { Providers } from "@/providers";
 
 const inter = Inter({
   subsets: ["latin", "vietnamese"],
@@ -34,22 +35,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={inter.variable}>
+    <html lang="vi" className={inter.variable} suppressHydrationWarning>
       <head>
         {/* JSON-LD Structured Data */}
         <JsonLd data={generateWebsiteJsonLd()} />
         <JsonLd data={generateOrganizationJsonLd()} />
         <JsonLd data={generateSoftwareApplicationJsonLd()} />
       </head>
-      <body className="font-sans antialiased">
-        {/* Skip to main content - Accessibility */}
-        <a href="#main-content" className="skip-link">
-          Chuyển đến nội dung chính
-        </a>
+      <body className="min-h-screen bg-background font-sans antialiased">
+        <Providers>
+          {/* Skip to main content - Accessibility */}
+          <a href="#main-content" className="skip-link">
+            Chuyển đến nội dung chính
+          </a>
 
-        <main id="main-content">
-          {children}
-        </main>
+          <main id="main-content">
+            {children}
+          </main>
+        </Providers>
 
         {/* Google Analytics */}
         <GoogleAnalytics />
